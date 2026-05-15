@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap');
+
+@theme {
+  --font-display: "Bebas Neue", sans-serif;
+  --font-mono: "DM Mono", monospace;
+  --font-body: "DM Sans", sans-serif;
+
+  --color-bg: #080808;
+  --color-fg: #f0ede8;
+  --color-dim: #555550;
+  --color-accent: #c8ff00;
+  --color-line: #1e1e1c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: crosshair;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* 스크롤바 */
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-dim);
+}
+
+/* 애니메이션 */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes glitch1 {
+  0%   { clip-path: inset(20% 0 60% 0); transform: translate(-3px, 0); }
+  20%  { clip-path: inset(70% 0 10% 0); transform: translate(3px, 0); }
+  40%  { clip-path: inset(40% 0 40% 0); transform: translate(-2px, 0); }
+  60%  { clip-path: inset(10% 0 80% 0); transform: translate(2px, 0); }
+  80%  { clip-path: inset(55% 0 25% 0); transform: translate(-3px, 0); }
+  100% { clip-path: inset(20% 0 60% 0); transform: translate(-3px, 0); }
+}
+
+@keyframes glitch2 {
+  0%   { clip-path: inset(60% 0 20% 0); transform: translate(3px, 0); }
+  20%  { clip-path: inset(15% 0 65% 0); transform: translate(-3px, 0); }
+  40%  { clip-path: inset(80% 0 5%  0); transform: translate(3px, 0); }
+  60%  { clip-path: inset(30% 0 50% 0); transform: translate(-2px, 0); }
+  80%  { clip-path: inset(5%  0 80% 0); transform: translate(2px, 0); }
+  100% { clip-path: inset(60% 0 20% 0); transform: translate(3px, 0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease both;
+}
