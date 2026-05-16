@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST="{\"app/page.tsx -> @/components/NoiseField\":{\"id\":\"app/page.tsx -> @/components/NoiseField\",\"files\":[\"static/chunks/_app-pages-browser_src_components_NoiseField_tsx.js\"]}}"

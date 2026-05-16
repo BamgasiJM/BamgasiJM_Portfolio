@@ -4,21 +4,24 @@
 
 @theme {
   --font-display: "Bebas Neue", sans-serif;
-  --font-mono: "DM Mono", monospace;
-  --font-body: "DM Sans", sans-serif;
+  --font-mono:    "DM Mono", monospace;
+  --font-body:    "DM Sans", sans-serif;
 
-  --color-bg: #080808;
-  --color-fg: #f0ede8;
-  --color-dim: #555550;
-  --color-accent: #c8ff00;
-  --color-line: #1e1e1c;
+  --color-bg:      #06060a;
+  --color-fg:      #eeeae3;
+  --color-dim:     #52525e;
+  --color-line:    #18181f;
+
+  --color-accent:  #7b61ff;
+  --color-teal:    #00e5c0;
+  --color-pink:    #ff3e7f;
+  --color-yellow:  #ffe566;
+
+  --grad-title: linear-gradient(135deg, #eeeae3 0%, #7b61ff 60%, #00e5c0 100%);
+  --grad-line:  linear-gradient(90deg, #7b61ff, #00e5c0);
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
   background-color: var(--color-bg);
@@ -29,71 +32,67 @@ html {
   cursor: crosshair;
 }
 
-::selection {
-  background-color: var(--color-accent);
-  color: var(--color-bg);
-}
+::selection { background-color: var(--color-accent); color: var(--color-bg); }
 
-/* 스크롤바 */
-::-webkit-scrollbar {
-  width: 2px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-bg);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-dim);
-}
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-accent); }
 
-/* 애니메이션 */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
-
-@keyframes scanline {
-  0%   { transform: translateY(-100%); }
-  100% { transform: translateY(100vh); }
-}
-
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
 }
-
 @keyframes glitch1 {
-  0%   { clip-path: inset(20% 0 60% 0); transform: translate(-3px, 0); }
-  20%  { clip-path: inset(70% 0 10% 0); transform: translate(3px, 0); }
-  40%  { clip-path: inset(40% 0 40% 0); transform: translate(-2px, 0); }
-  60%  { clip-path: inset(10% 0 80% 0); transform: translate(2px, 0); }
-  80%  { clip-path: inset(55% 0 25% 0); transform: translate(-3px, 0); }
-  100% { clip-path: inset(20% 0 60% 0); transform: translate(-3px, 0); }
+  0%   { clip-path: inset(20% 0 60% 0); transform: translate(-4px, 0); }
+  20%  { clip-path: inset(70% 0 10% 0); transform: translate(4px, 0); }
+  40%  { clip-path: inset(40% 0 40% 0); transform: translate(-3px, 0); }
+  60%  { clip-path: inset(10% 0 80% 0); transform: translate(3px, 0); }
+  80%  { clip-path: inset(55% 0 25% 0); transform: translate(-4px, 0); }
+  100% { clip-path: inset(20% 0 60% 0); transform: translate(-4px, 0); }
 }
-
 @keyframes glitch2 {
-  0%   { clip-path: inset(60% 0 20% 0); transform: translate(3px, 0); }
-  20%  { clip-path: inset(15% 0 65% 0); transform: translate(-3px, 0); }
-  40%  { clip-path: inset(80% 0 5%  0); transform: translate(3px, 0); }
-  60%  { clip-path: inset(30% 0 50% 0); transform: translate(-2px, 0); }
-  80%  { clip-path: inset(5%  0 80% 0); transform: translate(2px, 0); }
-  100% { clip-path: inset(60% 0 20% 0); transform: translate(3px, 0); }
+  0%   { clip-path: inset(60% 0 20% 0); transform: translate(4px, 0); }
+  20%  { clip-path: inset(15% 0 65% 0); transform: translate(-4px, 0); }
+  40%  { clip-path: inset(80% 0 5%  0); transform: translate(4px, 0); }
+  60%  { clip-path: inset(30% 0 50% 0); transform: translate(-3px, 0); }
+  80%  { clip-path: inset(5%  0 80% 0); transform: translate(3px, 0); }
+  100% { clip-path: inset(60% 0 20% 0); transform: translate(4px, 0); }
+}
+@keyframes gradShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-.animate-fade-up {
-  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+.animate-fade-up  { animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-fade-in  { animation: fadeIn 0.7s ease both; }
+
+.text-gradient {
+  background: var(--grad-title);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradShift 6s ease infinite;
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.6s ease both;
+.accent-line { position: relative; }
+.accent-line::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -3px;
+  width: 100%; height: 2px;
+  background: var(--grad-line);
+}
+
+.glow-accent {
+  text-shadow: 0 0 32px rgba(123,97,255,0.55), 0 0 64px rgba(0,229,192,0.2);
 }

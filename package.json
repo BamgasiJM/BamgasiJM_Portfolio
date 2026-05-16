@@ -11,12 +11,17 @@
   "dependencies": {
     "next": "^15.3.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "@react-three/fiber": "^9.1.0",
+    "@react-three/drei": "^10.0.0",
+    "three": "^0.176.0",
+    "simplex-noise": "^4.0.3"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
+    "@types/three": "^0.176.0",
     "typescript": "^5.8.0",
     "tailwindcss": "^4.1.0",
     "@tailwindcss/postcss": "^4.1.0",
